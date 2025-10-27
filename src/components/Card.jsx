@@ -13,7 +13,7 @@ const Card = ({elem}) => {
             <div id="front" className={`text-xl ${isFlipped ? "hidden" : ""}`}>
                 <h3>FRONT</h3>
             </div>
-            <div id="back" className={`${isFlipped ? "" : "hidden"}`}>
+            <div id="back" className={`${isFlipped ? "" : "hidden"} text-7xl`}>
                 {elem}
             </div>
         </div>
