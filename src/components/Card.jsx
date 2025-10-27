@@ -1,15 +1,7 @@
-import { useState } from "react";
-
-
-const Card = ({elem}) => {
-    const [isFlipped, setFlipped] = useState(false);
-
-    const onFlipCard = () => {
-        setFlipped(true)
-    }
+const Card = ({elem, handleFlip, isFlipped}) => {
 
     return (
-        <div onClick={onFlipCard} className="w-full flex justify-center items-center aspect-square rounded-2xl border border-black">
+        <div onClick={handleFlip} className="w-full flex justify-center items-center aspect-square rounded-2xl border border-black">
             <div id="front" className={`text-xl ${isFlipped ? "hidden" : ""}`}>
                 <h3>FRONT</h3>
             </div>
