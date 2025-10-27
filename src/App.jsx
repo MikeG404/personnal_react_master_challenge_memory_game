@@ -1,11 +1,12 @@
 import './App.css'
+import CardGrid from './components/CardGrid'
 
 function App() {
 
   return (
-    <>
-      <h1 className='text-red-500 underline'>TEXT REACT</h1>
-    </>
+    <main>
+      <CardGrid />
+    </main>
   )
 }
 
