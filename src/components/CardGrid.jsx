@@ -36,15 +36,20 @@ const CardGrid = () => {
         const [first, second] = selectedCards        
 
         if (first.value === second.value) {
-            console.log("You got one");
+            if (Object.entries(flippedCard).length === cardElements.length) {
+                setTimeout(() => {
+                    setFlippedCard({})
+                }, 2000)
+            }
         } else {
-            console.log("Bad match");
-            setFlippedCard((prev) => {
-                const updated = { ...prev };
-                delete updated[first.id];
-                delete updated[second.id];
-                return updated;
-            })
+            setTimeout(() => {  
+                setFlippedCard((prev) => {
+                    const updated = { ...prev };
+                    delete updated[first.id];
+                    delete updated[second.id];
+                    return updated;
+                })
+            }, 1500)
         }
         setSelectedCards([]);
         }

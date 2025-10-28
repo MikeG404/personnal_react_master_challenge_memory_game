@@ -1,13 +1,33 @@
-const Card = ({elem, handleFlip, isFlipped}) => {
+import { motion } from "motion/react"
 
+const Card = ({elem, handleFlip, isFlipped}) => {
     return (
-        <div onClick={handleFlip} className="w-full flex justify-center items-center aspect-square rounded-2xl border border-black">
-            <div id="front" className={`text-xl ${isFlipped ? "hidden" : ""}`}>
-                <h3>FRONT</h3>
-            </div>
-            <div id="back" className={`${isFlipped ? "" : "hidden"} text-7xl`}>
-                {elem}
-            </div>
+        <div className="w-full aspect-square" style={{ perspective: '1000px' }}>
+            
+            <motion.div
+                className="relative w-full h-full"
+                style={{ transformStyle: 'preserve-3d' }}
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                transition={{ duration: 0.6, type: 'spring' }}
+                onClick={handleFlip}
+            >
+                <div 
+                    className="absolute inset-0 flex justify-center items-center rounded-2xl border border-black bg-white text-xl"
+                    style={{ backfaceVisibility: 'hidden' }}
+                >
+                    <h3>FRONT</h3>
+                </div>
+                
+                <div 
+                    className="absolute inset-0 flex justify-center items-center rounded-2xl border border-black bg-white text-7xl"
+                    style={{ 
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)'
+                    }}
+                >
+                    {elem}
+                </div>
+            </motion.div>
         </div>
     )
 }
