@@ -64,19 +64,20 @@ const CardGrid = () => {
     }
 
     return (
-        <section className="h-screen max-w-screen-lg mx-auto grid grid-cols-5 gap-5 p-12">
-            {hasWon && <EndGame setHasWon={setHasWon} setFlippedCard={setFlippedCard} />}
-            { cardElements.map((elem) => {
-                return (
-                    <Card 
-                        key={elem.id} 
-                        elem={elem.value}
-                        isFlipped={!!flippedCard[elem.id]}
-                        handleFlip={() => handleFlip(elem)}
-                        />
-                )
-            })}
-        </section>
+<section className="min-h-screen flex items-center justify-center p-4">
+  <div className="w-full max-w-4xl grid grid-cols-5 gap-4">
+    {cardElements.map((elem) => {
+      return (
+        <Card 
+          key={elem.id} 
+          elem={elem.value}
+          isFlipped={!!flippedCard[elem.id]}
+          handleFlip={() => handleFlip(elem)}
+        />
+      )
+    })}
+  </div>
+</section>
     )
 }
 
