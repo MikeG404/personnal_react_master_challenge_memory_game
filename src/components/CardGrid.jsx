@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
+import EndGame from "./EndGame";
 
 const cardElements = [
   { id: 0, value: "🌧️" },
@@ -66,18 +67,8 @@ const CardGrid = () => {
     }
 
     return (
-        <section className="w-screen grid grid-cols-5 gap-5 p-10">
-            {hasWon && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <h2 className="text-white text-3xl">Vous avez gagné !</h2>
-                    <button className="mt-4 px-4 py-2 bg-white text-black rounded" onClick={() => {
-                        setHasWon(false);
-                        setFlippedCard({});
-                    }}>
-                        Rejouer
-                    </button>
-                </div>
-            )}
+        <section className="h-screen max-w-screen-lg mx-auto grid grid-cols-5 gap-5 p-12">
+            {hasWon && <EndGame setHasWon={setHasWon} setFlippedCard={setFlippedCard} />}
             { cardElements.map((elem) => {
                 return (
                     <Card 

@@ -13,7 +13,7 @@ const Card = ({elem, handleFlip, isFlipped}) => {
                 onClick={handleFlip}
             >
                 <div 
-                    className="absolute inset-0 flex justify-center items-center rounded-2xl border border-black bg-white text-xl"
+                    className="absolute inset-0 flex justify-center items-center rounded-2xl bg-white text-xl"
                     style={{ backfaceVisibility: 'hidden' }}
                 >
                     <CardBack />
