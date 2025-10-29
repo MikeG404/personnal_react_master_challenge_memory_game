@@ -20,7 +20,7 @@ const Card = ({elem, handleFlip, isFlipped}) => {
                 </div>
                 
                 <div 
-                    className="absolute inset-0 flex justify-center items-center rounded-2xl border border-black bg-white text-7xl"
+                    className="absolute inset-0 flex justify-center items-center rounded-2xl border border-black bg-white text-3xl lg:text-7xl"
                     style={{ 
                         backfaceVisibility: 'hidden',
                         transform: 'rotateY(180deg)'

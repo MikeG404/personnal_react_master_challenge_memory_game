@@ -4,7 +4,7 @@ import CardGrid from './components/CardGrid'
 function App() {
 
   return (
-    <main className='h-screen'>
+    <main className='max-h-screen'>
       <CardGrid />
     </main>
   )
