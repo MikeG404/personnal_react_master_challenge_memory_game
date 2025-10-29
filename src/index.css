@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+
+body {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
