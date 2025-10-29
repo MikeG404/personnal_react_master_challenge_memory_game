@@ -1,4 +1,4 @@
-const EndGame = ({setHasWon, setFlippedCard}) => {
+const EndGame = ({ setHasWon, setFlippedCard }) => {
 
     const handleEngameReset = () => {
         setHasWon(false);
@@ -6,11 +6,20 @@ const EndGame = ({setHasWon, setFlippedCard}) => {
     }
 
     return (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <h2 className="text-white text-3xl">You won!</h2>
-            <button className="mt-4 px-4 py-2 bg-white text-black rounded" onClick={handleEngameReset}>
-                Replay
+        <div className="flex flex-col absolute inset-0 flex items-center justify-center z-50">
+            <h2 className="text-black text-9xl">You won!</h2>
+            <button
+            onClick={handleEngameReset}
+                class="group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-yellow-500 backdrop-blur-lg px-12 py-4 text-base font-semibold text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-gray-600/50 border border-white/20"
+            >
+                <span class="text-4xl">Replay</span>
+                <div
+                    class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]"
+                >
+                    <div class="relative h-full w-10 bg-white/20"></div>
+                </div>
             </button>
+
         </div>
     )
 }
