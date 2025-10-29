@@ -24,12 +24,10 @@ const cardElements = [
   { id: 19, value: "🎮" }
 ];
 
-
-
-
 const CardGrid = () => {
     const [flippedCard, setFlippedCard] = useState({})
     const [selectedCards, setSelectedCards] = useState([]);
+    const [hasWon, setHasWon] = useState(false);
 
     useEffect(() => {
     if (selectedCards.length === 2) {
@@ -40,6 +38,7 @@ const CardGrid = () => {
                 setTimeout(() => {
                     setFlippedCard({})
                 }, 2000)
+                setHasWon(true);
             }
         } else {
             setTimeout(() => {  
@@ -67,13 +66,24 @@ const CardGrid = () => {
     }
 
     return (
-        <section className="grid grid-cols-5 gap-5 p-10">
+        <section className="w-screen grid grid-cols-5 gap-5 p-10">
+            {hasWon && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <h2 className="text-white text-3xl">Vous avez gagné !</h2>
+                    <button className="mt-4 px-4 py-2 bg-white text-black rounded" onClick={() => {
+                        setHasWon(false);
+                        setFlippedCard({});
+                    }}>
+                        Rejouer
+                    </button>
+                </div>
+            )}
             { cardElements.map((elem) => {
                 return (
                     <Card 
                         key={elem.id} 
                         elem={elem.value}
-                        isFlipped={!!flippedCard[elem.id]} // Si il y a une carte retourné on passe true
+                        isFlipped={!!flippedCard[elem.id]}
                         handleFlip={() => handleFlip(elem)}
                         />
                 )
