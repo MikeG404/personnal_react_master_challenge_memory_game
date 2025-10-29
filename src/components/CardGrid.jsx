@@ -37,7 +37,7 @@ const CardGrid = () => {
             if (Object.entries(flippedCard).length === cardElements.length) {
                 setTimeout(() => {
                     setFlippedCard({})
-                }, 2000)
+                }, 1000)
                 setHasWon(true);
             }
         } else {

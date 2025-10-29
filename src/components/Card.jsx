@@ -1,4 +1,5 @@
 import { motion } from "motion/react"
+import CardBack from "./svg/CardBack"
 
 const Card = ({elem, handleFlip, isFlipped}) => {
     return (
@@ -15,7 +16,7 @@ const Card = ({elem, handleFlip, isFlipped}) => {
                     className="absolute inset-0 flex justify-center items-center rounded-2xl border border-black bg-white text-xl"
                     style={{ backfaceVisibility: 'hidden' }}
                 >
-                    <h3>FRONT</h3>
+                    <CardBack />
                 </div>
                 
                 <div 
